@@ -12,6 +12,12 @@ def new
 	@url = Url.new
 end
 
+def short
+    url = Url.find(params[:id])
+    redirect_to url.long_url    
+end 
+
+
 def create
   #@url = Url.new(params[:url])
   @url=Url.new(url_params)
@@ -31,7 +37,7 @@ end
 
 
 private
- 
+
 def url_params
     params.require(:url).permit(:long_url)
 end
